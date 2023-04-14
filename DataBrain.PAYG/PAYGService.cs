@@ -28,7 +28,7 @@ public class PAYGService : IPAYGService
     /// <param name="taxableIncome">The taxable income for the period</param>
     /// <param name="frequency">The length of time earnings were earned in</param>
     /// <returns>The PAYG payable, this includes the tax and medicare levi</returns>
-    /// <exception cref="InvalidDataException"></exception>
+    /// <exception cref="ArgumentException"></exception>
     public float GetTax(float taxableIncome, PaymentFrequency frequency)
     {
         return frequency switch
@@ -44,7 +44,7 @@ public class PAYGService : IPAYGService
     private float GetTaxFromTable(float earnings)
     {
         earnings += 0.99f;
-        var tableItem = _taxTable.FirstOrDefault(item => earnings < item.X) ?? _taxTable[^1];
+        var tableItem = _taxTable.OrderBy(a => a.X).FirstOrDefault(item => earnings < item.X) ?? _taxTable[^1];
         return (float) Math.Round(earnings * tableItem.A - tableItem.B);
     }
 
