@@ -1,4 +1,4 @@
-namespace DataBrain.PAYG;
+namespace DataBrain.PAYG.Service.Constants;
 
 public enum PaymentFrequency
 {

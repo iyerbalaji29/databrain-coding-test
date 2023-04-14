@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DataBrain.PAYG\DataBrain.PAYG.csproj" />
+    <ProjectReference Include="..\DataBrain.PAYG\DataBrain.PAYG.Service.csproj" />
   </ItemGroup>
 
 </Project>

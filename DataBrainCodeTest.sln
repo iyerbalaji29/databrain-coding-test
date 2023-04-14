@@ -3,17 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBrain.PAYG", "DataBrain.PAYG\DataBrain.PAYG.csproj", "{C653DCB0-97F4-43C7-979B-87BF132CC923}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataBrain.PAYG.Service", "DataBrain.PAYG\DataBrain.PAYG.Service.csproj", "{C653DCB0-97F4-43C7-979B-87BF132CC923}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBrain.PAYG.Tests", "DataBrain.PAYG.Tests\DataBrain.PAYG.Tests.csproj", "{94CF2ECC-694A-407E-9B36-380E343110D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataBrain.PAYG.Tests", "DataBrain.PAYG.Tests\DataBrain.PAYG.Tests.csproj", "{94CF2ECC-694A-407E-9B36-380E343110D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBrain.PAYG.Api", "DataBrain.PAYG.Api\DataBrain.PAYG.Api.csproj", "{9BEFD9DE-2F03-487F-81C0-3BD5DC87DB0F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{C653DCB0-97F4-43C7-979B-87BF132CC923}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -24,5 +23,15 @@ Global
 		{94CF2ECC-694A-407E-9B36-380E343110D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94CF2ECC-694A-407E-9B36-380E343110D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94CF2ECC-694A-407E-9B36-380E343110D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BEFD9DE-2F03-487F-81C0-3BD5DC87DB0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BEFD9DE-2F03-487F-81C0-3BD5DC87DB0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BEFD9DE-2F03-487F-81C0-3BD5DC87DB0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BEFD9DE-2F03-487F-81C0-3BD5DC87DB0F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {73F0BA9F-7F12-4FB8-8D2F-A92AD9F5FE14}
 	EndGlobalSection
 EndGlobal

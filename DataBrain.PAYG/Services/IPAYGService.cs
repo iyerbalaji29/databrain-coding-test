@@ -1,4 +1,6 @@
-namespace DataBrain.PAYG;
+using DataBrain.PAYG.Service.Constants;
+
+namespace DataBrain.PAYG.Service.Services;
 
 public interface IPAYGService
 {

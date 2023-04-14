@@ -1,5 +1,6 @@
 namespace DataBrain.PAYG.Tests;
-using DataBrain.PAYG;
+using DataBrain.PAYG.Service.Services;
+using DataBrain.PAYG.Service.Constants;
 
 public class PAYGServiceTests
 {
