@@ -12,6 +12,7 @@ public class PAYGServiceTests
 
     [Theory]
     [InlineData(2500.00f, PaymentFrequency.Weekly, 689.00f)]
+    [InlineData(3462.69f, PaymentFrequency.Weekly, 1064.00f)]
     [InlineData(4807.69f, PaymentFrequency.Fortnightly, 1302.00f)]
     [InlineData(4807.69f, PaymentFrequency.Monthly, 867.00f)]
     [InlineData(4807.69f, PaymentFrequency.FourWeekly, 928.00f)]
