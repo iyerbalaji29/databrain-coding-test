@@ -1,14 +1,18 @@
 namespace DataBrain.PAYG.Tests;
 using DataBrain.PAYG.Service.Services;
 using DataBrain.PAYG.Service.Constants;
+using Serilog;
+using Moq;
+using DataBrain.PAYG.Exceptions;
 
 public class PAYGServiceTests
 {
     private readonly IPAYGService serviceUnderTest;
-
+    private Mock<ILogger> _loggerMock;
     public PAYGServiceTests()
     {
-        serviceUnderTest = new PAYGService();
+        _loggerMock = new Mock<ILogger>();
+        serviceUnderTest = new PAYGService(_loggerMock.Object);
     }
 
     [Theory]
@@ -25,12 +29,11 @@ public class PAYGServiceTests
     }
 
     [Theory]
-    [InlineData(0, null, 0)]
-    [InlineData(-123.00, null, 0)]
-    public void Should_Return_0_PAYG_Tax_Based_on_Incorrect_Earnings_And_Frequency(float earnings, PaymentFrequency frequency, float expectedTax)
+    [InlineData(0, null)]
+    [InlineData(-123.00, null)]
+    public void Should_Throw_BadRequest_Exception_For_Invalid_Incorrect_Earnings_Or_Frequency(float earnings, PaymentFrequency frequency)
     {
-        var payg = serviceUnderTest.GetTax(earnings, frequency);
-        Assert.True(payg == 0);
-        Assert.True(payg == expectedTax);
+        var ex =  Assert.Throws<BadRequestException>(() => serviceUnderTest.GetTax(earnings, frequency)); 
+        Assert.Equal($"Frequency is invalid", ex.Message);
     }
 }

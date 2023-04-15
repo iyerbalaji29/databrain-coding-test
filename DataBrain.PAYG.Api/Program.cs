@@ -1,28 +1,15 @@
-using DataBrain.PAYG.Service.Services;
+using DataBrain.PAYG.Api;
+using Serilog;
 
-var builder = WebApplication.CreateBuilder(args);
+CreateHostBuilder(args).Build().Run();
 
-// Add services to the container.
-
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<IPAYGService, PAYGService>();
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
-
-app.Run();
+static IHostBuilder CreateHostBuilder(string[] args) =>
+    Host.CreateDefaultBuilder(args)
+        .UseSerilog((hostingContext, loggerConfiguration) => loggerConfiguration
+            .ReadFrom.Configuration(hostingContext.Configuration)
+            .Enrich.FromLogContext()
+            .WriteTo.File("Logs/DataBrain.PAYG.App.txt"))
+        .ConfigureWebHostDefaults(webBuilder =>
+        {
+            webBuilder.UseStartup<Startup>();
+        });

@@ -1,4 +1,6 @@
-﻿using DataBrain.PAYG.Service.Constants;
+﻿using DataBrain.PAYG.Exceptions;
+using DataBrain.PAYG.Service.Constants;
+using Serilog;
 
 namespace DataBrain.PAYG.Service.Services;
 
@@ -11,6 +13,7 @@ public record TaxTableItem(float X, float A, float B);
 /// </summary>
 public class PAYGService : IPAYGService
 {
+    private readonly ILogger _logger;
     private readonly List<TaxTableItem> _taxTable = new()
     {
         new TaxTableItem(359f, 0f, 0f),
@@ -24,6 +27,10 @@ public class PAYGService : IPAYGService
         new TaxTableItem(3461f, 0.4700f, 563.5196f)
     };
 
+    public PAYGService(ILogger logger)
+    {
+        _logger = logger;
+    }
     /// <summary>
     /// Gets the PAYG tax payable for the given taxable income earned over the period defined by frequency
     /// </summary>
@@ -33,14 +40,22 @@ public class PAYGService : IPAYGService
     /// <exception cref="ArgumentException"></exception>
     public float GetTax(float taxableIncome, PaymentFrequency frequency)
     {
-        return frequency switch
+        try
         {
-            PaymentFrequency.Fortnightly => GetTaxFromTable(taxableIncome / 2) * 2,
-            PaymentFrequency.FourWeekly => GetTaxFromTable(taxableIncome / 4) * 4,
-            PaymentFrequency.Monthly => (float) Math.Round(GetTaxFromTable(GetMonthlyEarnings(taxableIncome)) * 13 / 3),
-            PaymentFrequency.Weekly => GetTaxFromTable(taxableIncome),
-            _ => throw new ArgumentException("frequency is invalid")
-        };
+            return frequency switch
+            {
+                PaymentFrequency.Fortnightly => GetTaxFromTable(taxableIncome / 2) * 2,
+                PaymentFrequency.FourWeekly => GetTaxFromTable(taxableIncome / 4) * 4,
+                PaymentFrequency.Monthly => (float)Math.Round(GetTaxFromTable(GetMonthlyEarnings(taxableIncome)) * 13 / 3),
+                PaymentFrequency.Weekly => GetTaxFromTable(taxableIncome),
+                _ => throw new BadRequestException("Frequency is invalid")
+            };
+        }
+        catch(BadRequestException ex)
+        {
+            _logger.Error(ex.Message, ex);
+            throw;
+        }
     }
 
     private float GetTaxFromTable(float earnings)
