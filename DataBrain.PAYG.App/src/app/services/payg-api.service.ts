@@ -20,7 +20,7 @@ export class PaygApiService {
 
   calculateTax(income: number, frequency: Frequency): Observable<any> {
     const queryParams = {
-      earnings: income.toString(),
+      earnings: income,
       frequency: frequency.toString()
     };
     return this.http.get<any>(environment.apiUrl, { params: queryParams, headers: this.httpOptions.headers }).pipe(
@@ -40,6 +40,6 @@ export class PaygApiService {
         `body was: ${error.error}`);
     }
     // Return an observable with a user-facing error message.
-    return throwError(() => new Error('Something bad happened; please try again later.'));
+    return throwError(() => new Error('Error occured since external API was unreachable'));
   }
 }

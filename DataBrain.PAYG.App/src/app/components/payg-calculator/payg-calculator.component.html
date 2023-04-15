@@ -1,16 +1,28 @@
-<div>
-    <label for="income">Income:</label>
-    <input type="number" [(ngModel)]="income" name="income" id="income"/>
-</div>
-<div>
-    <label for="frequency">Frequency:</label>
-    <select [(ngModel)]="frequency" name="frequency" id="frequency">
-        <option *ngFor="let option of frequencyOptions" [value]="option">{{ option }}</option>
-    </select>
-</div>
-<div>
-    <button (click)="calculateTax()">Calculate</button>
-</div>
-<div>
-    Your tax is: {{ tax | currency:'AUD':'symbol':'1.2-2' }}
+
+<h1 class="title">Tax Calculator</h1>
+<div class="container">
+    <form [formGroup]="taxForm">
+        <mat-form-field appearance="fill">
+            <mat-label>Income</mat-label>
+            <input matInput type="number" placeholder="Enter your income" formControlName="income">
+            <mat-error *ngIf="taxForm.get('income')?.invalid">Please enter a valid income</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Payment Frequency</mat-label>
+            <mat-select formControlName="frequency" >
+                <mat-option *ngFor="let freq of frequencyOptions" [value]="freq">{{freq}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="taxForm.get('frequency')?.invalid">Please select a payment frequency</mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="calculateTax()" [disabled]="taxForm.invalid">Calculate Tax</button>
+    </form>
+
+    <div *ngIf="taxAmount >= 0">
+        <p>Calculated Tax: {{ taxAmount | currency:'AUD':'symbol-narrow'  }}</p>
+    </div>
+
+    <div *ngIf="errorMessage" class="error-Message">
+        <p>Error: {{ errorMessage }}</p>
+    </div>
+    
 </div>

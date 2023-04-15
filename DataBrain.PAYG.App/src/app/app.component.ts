@@ -7,11 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'DataBrain.PAYG.App';
+  title = 'PAYG Tax Calculator';
 
   value = {};
-  constructor(private http: HttpClient) { }
-
+  constructor() { }
 
   ngOnInit() {
   }
