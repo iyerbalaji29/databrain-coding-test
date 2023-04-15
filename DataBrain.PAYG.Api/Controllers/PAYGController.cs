@@ -1,6 +1,7 @@
 ﻿using DataBrain.PAYG.Exceptions;
 using DataBrain.PAYG.Service.Constants;
 using DataBrain.PAYG.Service.Services;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DataBrain.PAYG.Api.Controllers

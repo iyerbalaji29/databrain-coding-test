@@ -80,6 +80,16 @@ namespace DataBrain.PAYG.Api
             // Configure the HTTP request pipeline.
             app.UseHttpsRedirection();
             app.UseRouting();
+
+            //Added CORS to allow every origin, method and header. This will bypass any CORS from client side
+            //This needs to be in between UseRouting() and UseEndpoint() middleware for CORS to work successfully
+            app.UseCors(builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            });
+
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {

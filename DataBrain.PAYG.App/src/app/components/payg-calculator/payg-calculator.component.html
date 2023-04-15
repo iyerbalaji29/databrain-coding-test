@@ -1,0 +1,16 @@
+<div>
+    <label for="income">Income:</label>
+    <input type="number" [(ngModel)]="income" name="income" id="income"/>
+</div>
+<div>
+    <label for="frequency">Frequency:</label>
+    <select [(ngModel)]="frequency" name="frequency" id="frequency">
+        <option *ngFor="let option of frequencyOptions" [value]="option">{{ option }}</option>
+    </select>
+</div>
+<div>
+    <button (click)="calculateTax()">Calculate</button>
+</div>
+<div>
+    Your tax is: {{ tax | currency:'AUD':'symbol':'1.2-2' }}
+</div>
