@@ -1,6 +1,6 @@
 ﻿using DataBrain.PAYG.Exceptions;
 using DataBrain.PAYG.Service.Constants;
-using Serilog;
+using Microsoft.Extensions.Logging;
 
 namespace DataBrain.PAYG.Service.Services;
 
@@ -13,7 +13,7 @@ public record TaxTableItem(float X, float A, float B);
 /// </summary>
 public class PAYGService : IPAYGService
 {
-    private readonly ILogger _logger;
+    private readonly ILogger<PAYGService> _logger;
     private readonly List<TaxTableItem> _taxTable = new()
     {
         new TaxTableItem(359f, 0f, 0f),
@@ -27,7 +27,7 @@ public class PAYGService : IPAYGService
         new TaxTableItem(3461f, 0.4700f, 563.5196f)
     };
 
-    public PAYGService(ILogger logger)
+    public PAYGService(ILogger<PAYGService> logger)
     {
         _logger = logger;
     }
@@ -53,7 +53,7 @@ public class PAYGService : IPAYGService
         }
         catch(BadRequestException ex)
         {
-            _logger.Error(ex.Message, ex);
+            _logger.LogError(ex.Message, ex);
             throw;
         }
     }

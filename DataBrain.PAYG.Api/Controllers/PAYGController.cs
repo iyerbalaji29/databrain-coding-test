@@ -2,7 +2,6 @@
 using DataBrain.PAYG.Service.Constants;
 using DataBrain.PAYG.Service.Services;
 using Microsoft.AspNetCore.Mvc;
-using ILogger = Serilog.ILogger;
 
 namespace DataBrain.PAYG.Api.Controllers
 {
@@ -14,8 +13,8 @@ namespace DataBrain.PAYG.Api.Controllers
     public class PAYGController : Controller
     {
         private readonly IPAYGService _service;
-        private readonly ILogger _logger;
-        public PAYGController(IPAYGService service, ILogger logger)
+        private readonly ILogger<PAYGController> _logger;
+        public PAYGController(IPAYGService service, ILogger<PAYGController> logger)
         {
             _service = service;
             _logger = logger;
@@ -44,7 +43,7 @@ namespace DataBrain.PAYG.Api.Controllers
             }
             catch (Exception ex)
             {
-                _logger.Error("An unexpected error occurred", ex);
+                _logger.LogError("An unexpected error occurred", ex);
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
