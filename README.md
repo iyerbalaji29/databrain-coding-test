@@ -1,39 +1,32 @@
-# DataBrain Coding Test
+# DataBrainPAYGApp
 
-Welcome to the DataBrain coding test. Please read these instructions carefully before starting. The first thing you need to do is fork this repo into your personal github account. Do not commit to the original source repository as you will give your answers away!
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.
 
-There are 3 parts to this test, you need to complete them all.
+## API
 
-## 1. Unit test the class DataBrain.PAYG.PAYGService. 
+Open databrain-coding-test/DataBrainCodeTest.sln with Visual Studio to open the API project.
+The project consists of DataBrain.PAYG.Service which implements the business logic for calculating tax based on paycalculator.com.au website.
+The Service project and API project has corresponding tests that covers the unit tests for validating the logic implemented in the applications.
+Once all projects are loaded successfully, right click the DataBrain.PAYG.Api project and set as startup project.
+Then click on Run button, to run the API project. 
+This should open up a command window showing the api port where the project is exposing its api something like (https://localhost:7295/).
+Copy this url and make sure the below mentioned environments settings has the same apiUrl to communicate the backend API and Angular front end app successfully.
+You can also access the swagger documentation for the api with the following url (https://localhost:7295/swagger/index.html).
+The swagger api can be used for testing different inputs with earnings and payment frequency.
 
-The service has a single method:
+## Build
 
-`public float GetTax(float taxableIncome, PaymentFrequency frequency)`
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+There are two environments set up for switching between development (dev) and production (prod).
+There are environment files setup under src/environments folder for updating environment specific urls
+Please run `ng build --configuration=dev` or `ng build --configuration=prod` respectively to switch between specific urls.
 
-This method calculates the amount of PAYG withholding for the supplied taxable income over the given period. The calculations are derived from the following document. 
 
-https://www.ato.gov.au/uploadedFiles/Content/MEI/downloads/calculating-amounts-to-be-withheld-from-13-October-2020.pdf
+## FrontEnd App
 
-As far as I know it is correct, the output should match what you get from here: https://paycalculator.com.au/ 
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Also you can run environment specific server with `ng serve --configuration=dev` or `ng serve --configuration=prod` respectively to switch between specific environments.
 
-## 2. Expose the code through an API
+## Further help
 
-- Please comment your code
-- Both the API and the web front-end will be run on localhost (no CORS errors please)
-
-## 3. Build a simple angular application that consumes the API
-
-- It doesn't need to be fancy
-- It does need to work :)
-- Reorganise this repo so that the folder structure is neat and tidy
-- Replace this readme file with a new one that describes your application structure and supplies any information that is needed to run your application. 
-
-## How to submit 
-
-- You should already have forked this repo into your personal github account.
-- Commit your changes
-- Give me access (github username: wallywasadog, github email: nick@databrain.com.au)
-- Ping me to let me know you have completed the tasks
-
-Have fun, and thank you for taking the time to complete this test.
-
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
