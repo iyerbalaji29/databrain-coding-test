@@ -4,6 +4,7 @@ using DataBrain.PAYG.Service.Services;
 using Microsoft.OpenApi.Models;
 using Serilog;
 using Swashbuckle.AspNetCore.SwaggerUI;
+using System.Reflection;
 using System.Text.Json.Serialization;
 
 namespace DataBrain.PAYG.Api
@@ -45,6 +46,8 @@ namespace DataBrain.PAYG.Api
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "PAYG API", Version = "v1" });
+                c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory,
+                    $"{Assembly.GetExecutingAssembly().GetName().Name}.xml"));
                 c.SchemaFilter<EnumSchemaFilter>();
             });
 

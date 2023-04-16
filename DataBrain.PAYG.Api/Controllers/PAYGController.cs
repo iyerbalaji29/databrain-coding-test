@@ -1,7 +1,6 @@
 ﻿using DataBrain.PAYG.Exceptions;
 using DataBrain.PAYG.Service.Constants;
 using DataBrain.PAYG.Service.Services;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DataBrain.PAYG.Api.Controllers
@@ -24,8 +23,8 @@ namespace DataBrain.PAYG.Api.Controllers
         /// <summary>
         ///     Executes operation for calculating PAYG Tax for provided earnings and frequency.
         /// </summary>
-        /// <param name="earnings">Earnings for the provided period</param>
-        /// <param name="frequency">Provides the payment frequency type for the provided earnings, Could be (0)Weekly, (1)Fortnightly, (2)Monthly or (3)FourWeekly</param>
+        /// <param name="earnings">Income earned during the period</param>
+        /// <param name="frequency">Payment Frequency for the income earned during the period</param>
         /// <returns>Calculated PAYG Tax for provided period</returns>
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
