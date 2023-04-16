@@ -1,15 +1,13 @@
 
-<h1 class="title">Tax Calculator</h1>
+<h1 class="title">PAYG Tax Calculator</h1>
 <div class="container">
     <form [formGroup]="taxForm">
         <mat-form-field appearance="fill">
-            <mat-label>Income</mat-label>
             <input matInput type="number" placeholder="Enter your income" formControlName="income">
             <mat-error *ngIf="taxForm.get('income')?.invalid">Please enter a valid income</mat-error>
         </mat-form-field>
         <mat-form-field appearance="fill">
-            <mat-label>Payment Frequency</mat-label>
-            <mat-select formControlName="frequency" >
+            <mat-select formControlName="frequency" placeholder="Please select payment frequency" >
                 <mat-option *ngFor="let freq of frequencyOptions" [value]="freq">{{freq}}</mat-option>
             </mat-select>
             <mat-error *ngIf="taxForm.get('frequency')?.invalid">Please select a payment frequency</mat-error>

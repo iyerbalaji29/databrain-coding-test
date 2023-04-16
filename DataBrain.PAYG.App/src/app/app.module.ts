@@ -33,7 +33,7 @@ import { PaygCalculatorComponent } from './components/payg-calculator/payg-calcu
     MatSelectModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatIconModule,
+    MatIconModule, 
     MatSnackBarModule
   ],
   providers: [],

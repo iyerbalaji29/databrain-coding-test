@@ -1,17 +1,17 @@
 namespace DataBrain.PAYG.Tests;
 using DataBrain.PAYG.Service.Services;
 using DataBrain.PAYG.Service.Constants;
-using Serilog;
 using Moq;
 using DataBrain.PAYG.Exceptions;
+using Microsoft.Extensions.Logging;
 
 public class PAYGServiceTests
 {
     private readonly IPAYGService serviceUnderTest;
-    private Mock<ILogger> _loggerMock;
+    private Mock<ILogger<PAYGService>> _loggerMock;
     public PAYGServiceTests()
     {
-        _loggerMock = new Mock<ILogger>();
+        _loggerMock = new Mock<ILogger<PAYGService>>();
         serviceUnderTest = new PAYGService(_loggerMock.Object);
     }
 

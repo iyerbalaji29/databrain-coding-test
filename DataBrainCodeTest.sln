@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataBrain.PAYG.Service", "D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataBrain.PAYG.Tests", "DataBrain.PAYG.Tests\DataBrain.PAYG.Tests.csproj", "{94CF2ECC-694A-407E-9B36-380E343110D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBrain.PAYG.Api", "DataBrain.PAYG.Api\DataBrain.PAYG.Api.csproj", "{9BEFD9DE-2F03-487F-81C0-3BD5DC87DB0F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataBrain.PAYG.Api", "DataBrain.PAYG.Api\DataBrain.PAYG.Api.csproj", "{9BEFD9DE-2F03-487F-81C0-3BD5DC87DB0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBrain.PAYG.Api.Tests", "DataBrain.PAYG.Api.Tests\DataBrain.PAYG.Api.Tests.csproj", "{6535D46F-FEC7-4E6D-8871-68A4948C133A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{9BEFD9DE-2F03-487F-81C0-3BD5DC87DB0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BEFD9DE-2F03-487F-81C0-3BD5DC87DB0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BEFD9DE-2F03-487F-81C0-3BD5DC87DB0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6535D46F-FEC7-4E6D-8871-68A4948C133A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6535D46F-FEC7-4E6D-8871-68A4948C133A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6535D46F-FEC7-4E6D-8871-68A4948C133A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6535D46F-FEC7-4E6D-8871-68A4948C133A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
