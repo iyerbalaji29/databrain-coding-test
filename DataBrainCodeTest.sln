@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataBrain.PAYG.Service", "DataBrain.PAYG\DataBrain.PAYG.Service.csproj", "{C653DCB0-97F4-43C7-979B-87BF132CC923}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataBrain.PAYG.Tests", "DataBrain.PAYG.Tests\DataBrain.PAYG.Tests.csproj", "{94CF2ECC-694A-407E-9B36-380E343110D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataBrain.PAYG.Service.Tests", "DataBrain.PAYG.Tests\DataBrain.PAYG.Service.Tests.csproj", "{94CF2ECC-694A-407E-9B36-380E343110D2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataBrain.PAYG.Api", "DataBrain.PAYG.Api\DataBrain.PAYG.Api.csproj", "{9BEFD9DE-2F03-487F-81C0-3BD5DC87DB0F}"
 EndProject

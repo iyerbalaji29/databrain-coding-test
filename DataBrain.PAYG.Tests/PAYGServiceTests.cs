@@ -1,4 +1,4 @@
-namespace DataBrain.PAYG.Tests;
+namespace DataBrain.PAYG.Service.Tests;
 using DataBrain.PAYG.Service.Services;
 using DataBrain.PAYG.Service.Constants;
 using Moq;

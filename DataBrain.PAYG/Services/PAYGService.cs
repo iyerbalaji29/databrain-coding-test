@@ -37,7 +37,7 @@ public class PAYGService : IPAYGService
     /// <param name="taxableIncome">The taxable income for the period</param>
     /// <param name="frequency">The length of time earnings were earned in</param>
     /// <returns>The PAYG payable, this includes the tax and medicare levi</returns>
-    /// <exception cref="ArgumentException"></exception>
+    /// <exception cref="BadRequestException"></exception>
     public float GetTax(float taxableIncome, PaymentFrequency frequency)
     {
         try
